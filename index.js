@@ -3,8 +3,10 @@
 // 🏡 Task 1: Variables
 /* Create variables for principal, interest rate, and years. Assign them the values 200000, 0.05, and 30 respectively. Create another value called name and give it the value of your own name.
 */
-
-
+const principal = 200000
+const interestRate = 0.05
+const years = 30
+const name = "Troy"
 
 
 
@@ -15,9 +17,9 @@ Create a variable called `monthlyInterestRate` and give it the value of interest
 
 Create another variable called `periods` and give it the value of years*12.
 */
+const monthlyInterestRate = interestRate / 12
 
-
-
+const periods = years * 12
 
 // 🏡 Task 2: Harder Math
 /* Create your calculator! Use the formula in the ReadMe to run calculations on your numbers. Save the final value into a variable called monthlyRate.
@@ -28,7 +30,9 @@ Hint #2: you'll need to use the `math` object for parts of this calculation!
 
 When your math is correct, monthlyRate will equal 1073.64
 */
-
+const numerator = principal * monthlyInterestRate * Math.pow((1+monthlyInterestRate), periods)
+const denominator = Math.pow((1+monthlyInterestRate), periods) -1
+const monthlyRate = (numerator / denominator).toFixed(2)
 
 
 
@@ -38,10 +42,12 @@ When your math is correct, monthlyRate will equal 1073.64
 If your name is `Oscar` mortgageCalculator() should return "Oscar, your monthly rate is 1073.64"
 */
 
+const mortgageCalculator = () => {
+        return `${name}, your monthly rate is ${monthlyRate}`
 
+}
 
-
-
+console.log(mortgageCalculator())
 // 🏡 Task 4: Arguments and Parameters
 /* Substitute the variables in your functions for parameters such that you can substitute `P`, `I`, and `N` when you call the function.
 
@@ -50,7 +56,11 @@ mortgageCalculator(2000000, 0.05, 30); <-- should return 1,073.64
 */
 
 
+mortgageCalculatorTask4 = (P, I, N) => {
+    return monthlyRate;
+}
 
+console.log(mortgageCalculator(200000, 0.05, 30))
 
 
 // 🏡 Task 5: Conditionals
